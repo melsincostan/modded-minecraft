@@ -1,0 +1,13 @@
+services:
+  minecraft:
+    image: mlsn/forge
+    build:
+      context: ./forge
+      dockerfile: Dockerfile
+    ports:
+      - "25565:25565"
+    volumes:
+      - "./minecraft/server.properties:/srv/minecraft/server.properties:ro"
+      - "./minecraft/eula.txt:/srv/minecraft/eula.txt:ro"
+      - "./minecraft/mods/:/srv/minecraft/mods/:ro"
+      - "./minecraft/world/:/srv/minecraft/world/:rw"
